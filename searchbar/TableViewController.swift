@@ -31,9 +31,15 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, UISea
     override func viewDidLoad() {
         super.viewDidLoad()
            
-        items.append(Items(name: "MY ITEM", category: Items.Category.mine))
-        items.append(Items(name: "TEAM ITEM", category: Items.Category.team))
-        items.append(Items(name: "OTHER ITEM", category: Items.Category.others))
+        items.append(Items(name: "MY ITEM 1", category: Items.Category.mine))
+        items.append(Items(name: "MY ITEM 2", category: Items.Category.mine))
+        items.append(Items(name: "TEAM ITEM 1", category: Items.Category.team))
+        items.append(Items(name: "TEAM ITEM 2", category: Items.Category.team))
+        items.append(Items(name: "TEAM ITEM 3", category: Items.Category.team))
+        items.append(Items(name: "OTHER ITEM 1", category: Items.Category.others))
+        items.append(Items(name: "OTHER ITEM 2", category: Items.Category.others))
+        items.append(Items(name: "OTHER ITEM 3", category: Items.Category.others))
+        items.append(Items(name: "OTHER ITEM 4", category: Items.Category.others))
         
         itemsTableView.dataSource = self
         itemsTableView.delegate = self
@@ -74,6 +80,8 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, UISea
         }
         
         cell.textLabel?.text = currentItem.name
+        cell.detailTextLabel?.text = "Acest item face parte din categoria \(currentItem.category.rawValue.uppercased())"
+        
         return cell
     }
     
@@ -85,7 +93,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, UISea
         searchController.searchBar.returnKeyType = UIReturnKeyType.done
         searchController.searchBar.autocapitalizationType = .none
         
-        searchController.searchBar.scopeButtonTitles = ["All", "Mine", "Team", "Others"]
+        searchController.searchBar.scopeButtonTitles = ["ALL", "MINE", "TEAM", "OTHERS"]
         searchController.searchBar.delegate = self
         
         navigationItem.searchController = searchController

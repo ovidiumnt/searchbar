@@ -24,20 +24,20 @@ extension Items.Category: RawRepresentable {
   
     init?(rawValue: RawValue) {
         switch rawValue {
-            case "All": self = .all
-            case "Mine": self = .mine
-            case "Team": self = .team
-            case "Others": self = .others
+            case "ALL": self = .all
+            case "MINE": self = .mine
+            case "TEAM": self = .team
+            case "OTHERS": self = .others
             default: return nil
         }
     }
   
     var rawValue: RawValue {
         switch self {
-            case .all: return "All"
-            case .mine: return "Mine"
-            case .team: return "Team"
-            case .others: return "Others"
+            case .all: return "ALL"
+            case .mine: return "MINE"
+            case .team: return "TEAM"
+            case .others: return "OTHERS"
         }
     }
 }
