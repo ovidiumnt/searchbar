@@ -31,13 +31,14 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, UISea
     override func viewDidLoad() {
         super.viewDidLoad()
            
-        items.append(Items(name: "My item", category: Items.Category.mine))
-        items.append(Items(name: "Team item", category: Items.Category.mine))
-        items.append(Items(name: "Other item", category: Items.Category.mine))
+        items.append(Items(name: "MY ITEM", category: Items.Category.mine))
+        items.append(Items(name: "TEAM ITEM", category: Items.Category.team))
+        items.append(Items(name: "OTHER ITEM", category: Items.Category.others))
         
         itemsTableView.dataSource = self
         itemsTableView.delegate = self
         
+        searchController.searchBar.delegate = self
         initSearchController()
     }
     
@@ -82,15 +83,15 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, UISea
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.enablesReturnKeyAutomatically = false
         searchController.searchBar.returnKeyType = UIReturnKeyType.done
-        
         searchController.searchBar.autocapitalizationType = .none
         
-        definesPresentationContext = true
+        searchController.searchBar.scopeButtonTitles = ["All", "Mine", "Team", "Others"]
+        searchController.searchBar.delegate = self
         
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false // Make the search bar always visible.
-        searchController.searchBar.scopeButtonTitles = ["All", "Mine", "Team", "Others"]
-        searchController.searchBar.delegate = self
+        
+        definesPresentationContext = true
     }
             
     var isSearchBarEmpty: Bool {
