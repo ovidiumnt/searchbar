@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Search Bar test for Dailee project-->
         <scene sceneID="WlO-YE-90r">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="HNE-VO-mk5" customClass="TableViewController" customModule="searchbar" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,7 +46,7 @@
                             <outlet property="delegate" destination="HNE-VO-mk5" id="Tfq-Oy-41R"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="A8J-br-J7B"/>
+                    <navigationItem key="navigationItem" title="Search Bar test for Dailee project" id="A8J-br-J7B"/>
                     <connections>
                         <outlet property="itemsTableView" destination="1Wu-yq-Ztr" id="mQl-8X-CJu"/>
                     </connections>
