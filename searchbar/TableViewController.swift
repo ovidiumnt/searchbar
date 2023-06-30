@@ -15,6 +15,12 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, UISea
         
         filterContentForSearchText(searchBar.text!, category: category)
     }
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        let category = Items.Category(rawValue: searchBar.scopeButtonTitles![selectedScope])
+        
+        filterContentForSearchText(searchBar.text!, category: category)
+    }
             
     var items = [Items]()
     var filteredItems = [Items]()
