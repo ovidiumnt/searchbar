@@ -11,7 +11,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, UISea
     
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
-        let category = Items.Category(from: searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex])
+        let category = Items.Category(rawValue: searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex])
         
         filterContentForSearchText(searchBar.text!, category: category)
     }
@@ -34,7 +34,42 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, UISea
         
         initSearchController()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
             
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+            
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering {
+            return filteredItems.count
+        }
+
+        return items.count
+    }
+            
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        let currentItem: Items
+        
+        if (isFiltering) {
+            currentItem = filteredItems[indexPath.row]
+        } else {
+            currentItem = items[indexPath.row]
+        }
+        
+        cell.textLabel?.text = currentItem.name
+        return cell
+    }
+    
     func initSearchController() {
         searchController.loadViewIfNeeded()
         searchController.searchResultsUpdater = self
@@ -50,32 +85,6 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, UISea
         navigationItem.hidesSearchBarWhenScrolling = false // Make the search bar always visible.
         searchController.searchBar.scopeButtonTitles = ["All", "Mine", "Team", "Others"]
         searchController.searchBar.delegate = self
-    }
-            
-            // MARK: - Table view data source
-            
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-            
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
-    }
-            
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        let thisItem: Items!
-        
-        if (searchController.isActive) {
-            thisItem = filteredItems[indexPath.row]
-        } else {
-            thisItem = items[indexPath.row]
-        }
-        
-        cell.textLabel?.text = thisItem.name
-        
-        return cell
     }
             
     var isSearchBarEmpty: Bool {
