@@ -18,7 +18,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, UISea
     }
             
     var items = [Items]()
-    var filteredItems:  = [Items]()
+    var filteredItems = [Items]()
     let searchController = UISearchController()
     
     @IBOutlet var itemsTableView: UITableView!
