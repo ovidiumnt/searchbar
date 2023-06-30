@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		AE02A4FF2A4EC19900F1A2A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02A4FE2A4EC19900F1A2A3 /* AppDelegate.swift */; };
 		AE02A5012A4EC19900F1A2A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02A5002A4EC19900F1A2A3 /* SceneDelegate.swift */; };
-		AE02A5032A4EC19900F1A2A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02A5022A4EC19900F1A2A3 /* ViewController.swift */; };
 		AE02A5062A4EC19900F1A2A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE02A5042A4EC19900F1A2A3 /* Main.storyboard */; };
 		AE02A5082A4EC19B00F1A2A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE02A5072A4EC19B00F1A2A3 /* Assets.xcassets */; };
 		AE02A50B2A4EC19B00F1A2A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE02A5092A4EC19B00F1A2A3 /* LaunchScreen.storyboard */; };
+		AE02A5132A4EC47A00F1A2A3 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02A5122A4EC47A00F1A2A3 /* TableViewController.swift */; };
+		AE02A5152A4EC49E00F1A2A3 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02A5142A4EC49E00F1A2A3 /* Items.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AE02A4FB2A4EC19900F1A2A3 /* searchbar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = searchbar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE02A4FE2A4EC19900F1A2A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE02A5002A4EC19900F1A2A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AE02A5022A4EC19900F1A2A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AE02A5052A4EC19900F1A2A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE02A5072A4EC19B00F1A2A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE02A50A2A4EC19B00F1A2A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE02A50C2A4EC19B00F1A2A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE02A5122A4EC47A00F1A2A3 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		AE02A5142A4EC49E00F1A2A3 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +60,12 @@
 			children = (
 				AE02A4FE2A4EC19900F1A2A3 /* AppDelegate.swift */,
 				AE02A5002A4EC19900F1A2A3 /* SceneDelegate.swift */,
-				AE02A5022A4EC19900F1A2A3 /* ViewController.swift */,
 				AE02A5042A4EC19900F1A2A3 /* Main.storyboard */,
 				AE02A5072A4EC19B00F1A2A3 /* Assets.xcassets */,
 				AE02A5092A4EC19B00F1A2A3 /* LaunchScreen.storyboard */,
 				AE02A50C2A4EC19B00F1A2A3 /* Info.plist */,
+				AE02A5122A4EC47A00F1A2A3 /* TableViewController.swift */,
+				AE02A5142A4EC49E00F1A2A3 /* Items.swift */,
 			);
 			path = searchbar;
 			sourceTree = "<group>";
@@ -138,9 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE02A5032A4EC19900F1A2A3 /* ViewController.swift in Sources */,
+				AE02A5152A4EC49E00F1A2A3 /* Items.swift in Sources */,
 				AE02A4FF2A4EC19900F1A2A3 /* AppDelegate.swift in Sources */,
 				AE02A5012A4EC19900F1A2A3 /* SceneDelegate.swift in Sources */,
+				AE02A5132A4EC47A00F1A2A3 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
