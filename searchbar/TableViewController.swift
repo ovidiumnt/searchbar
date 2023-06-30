@@ -11,10 +11,9 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, UISea
     
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
-        let scopeButton = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
-        let searchText = searchBar.text!
+        let category = Items.Category(from: searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex])
         
-        filterForSearchTextAndScopeButton(searchText: searchText, scopeButton: scopeButton)
+        filterContentForSearchText(searchBar.text!, category: category)
     }
             
     var items = [Items]()
@@ -79,17 +78,26 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, UISea
         return cell
     }
             
-    func filterForSearchTextAndScopeButton(searchText: String, scopeButton: String = "All") {
-        filteredItems = items.filter { item in
-            let scopeMatch = (scopeButton == "All" || item.category == .all)
-            if (searchController.searchBar.text != "") {
-                let searchTextMatch = item.name.lowercased().contains(searchText.lowercased())
-                return scopeMatch && searchTextMatch
-            } else {
-                return scopeMatch
-            }
-        }
+    var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    var isFiltering: Bool {
+      let searchBarScopeIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
+      return searchController.isActive && (!isSearchBarEmpty || searchBarScopeIsFiltering)
+    }
+    
+    func filterContentForSearchText(_ searchText: String, category: Items.Category? = nil) {
+      filteredItems = items.filter { (item: Items) -> Bool in
+        let categoryMatch = category == .all || item.category == category
         
-        itemsTableView.reloadData()
+        if isSearchBarEmpty {
+            return categoryMatch
+        } else {
+            return categoryMatch && item.name.lowercased().contains(searchText.lowercased())
+        }
+      }
+      
+      tableView.reloadData()
     }
 }
