@@ -94,6 +94,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, UISea
         searchController.searchBar.autocapitalizationType = .none
         
         searchController.searchBar.scopeButtonTitles = ["ALL", "MINE", "TEAM", "OTHERS"]
+        searchController.searchBar.showsScopeBar = true
         searchController.searchBar.delegate = self
         
         navigationItem.searchController = searchController
