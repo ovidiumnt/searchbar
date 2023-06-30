@@ -25,10 +25,10 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, UISea
             
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        items = [Items(name: "My item", category: Items.Category.mine),
-                 Items(name: "Team item", category: Items.Category.mine),
-                 Items(name: "Other item", category: Items.Category.other)]
+           
+        items.append(Items(name: "My item", category: Items.Category.mine))
+        items.append(Items(name: "Team item", category: Items.Category.mine))
+        items.append(Items(name: "Other item", category: Items.Category.mine))
         
         itemsTableView.dataSource = self
         itemsTableView.delegate = self
