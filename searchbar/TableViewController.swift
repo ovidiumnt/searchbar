@@ -30,8 +30,8 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, UISea
                  Items(name: "Team item", category: Items.Category.mine),
                  Items(name: "Other item", category: Items.Category.other)]
         
-        tableView.dataSource = self
-        tableView.delegate = self
+        itemsTableView.dataSource = self
+        itemsTableView.delegate = self
         
         initSearchController()
     }
