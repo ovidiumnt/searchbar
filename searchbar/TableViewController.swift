@@ -17,8 +17,8 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, UISea
         filterForSearchTextAndScopeButton(searchText: searchText, scopeButton: scopeButton)
     }
             
-    var items: [Items] = []
-    var filteredItems: [Items] = []
+    var items = [Items]()
+    var filteredItems:  = [Items]()
     let searchController = UISearchController()
     
     @IBOutlet var itemsTableView: UITableView!
